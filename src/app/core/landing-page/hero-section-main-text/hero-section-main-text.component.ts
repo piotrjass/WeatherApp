@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-
+import { RoughNotationModule } from 'ng-rough-notation';
 @Component({
   selector: 'app-hero-section-main-text',
   standalone: true,
-  imports: [],
+  imports: [RoughNotationModule],
   templateUrl: './hero-section-main-text.component.html',
   styleUrl: './hero-section-main-text.component.css',
 })

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { RouterModule, RouterLink } from '@angular/router';
+// components
 import { AirQualityCardComponent } from '../../air-quality-card/air-quality-card/air-quality-card.component';
+// icons
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 // tabler icons
 import { tablerIcons } from '@ng-icons/tabler-icons';
@@ -17,7 +20,7 @@ import { bootstrapFlower1 } from '@ng-icons/bootstrap-icons';
 @Component({
   selector: 'app-air-quality-cards-container',
   standalone: true,
-  imports: [AirQualityCardComponent],
+  imports: [AirQualityCardComponent, RouterModule, RouterLink],
   templateUrl: './air-quality-cards-container.component.html',
   styleUrl: './air-quality-cards-container.component.css',
   viewProviders: [

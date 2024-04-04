@@ -1,6 +1,6 @@
-<section>
+<section class="bg-blue-100 p-5">
   <div
-    class="bg-blue-100 p-10 min-h-[15rem] h-fit flex gap-10 items-center justify-center flex-wrap"
+    class="p-10 min-h-[15rem] h-fit flex gap-10 items-center justify-center flex-wrap"
   >
     @for(card of cards; track card. name){
     <app-weather-card
@@ -10,5 +10,13 @@
       [url]="card.url"
     ></app-weather-card>
     }
+  </div>
+  <div class="flex items-center justify-center">
+    <button
+      routerLink="/weather"
+      class="px-5 py-3 text-nowrap border-2 border-black text-black font-bold hover:cursor-pointer hover:bg-black hover:text-white transition-all duration-300 rounded-3xl"
+    >
+      Check the weather
+    </button>
   </div>
 </section>
