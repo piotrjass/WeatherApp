@@ -1,0 +1,34 @@
+<!-- <div
+  class="w-[17rem] h-[20rem] shadow-md rounded-3xl hover:scale-105 transition-all duration-300"
+>
+  <img
+    class="h-full w-full object-cover drop-shadow-xl rounded-3xl mx-auto"
+    [src]="url"
+    alt=""
+  />
+  <p>
+    <span>{{ city }}</span>
+    <span> {{ temperature }} </span>
+  </p>
+  <p>{{ desc }}</p>
+</div> -->
+<div
+  class="relative flex flex-col justify-center items-center w-[17rem] h-[20rem] shadow-md rounded-3xl hover:scale-105 transition-all duration-300"
+>
+  <img
+    class="absolute top-0 left-0 h-full w-full object-cover rounded-3xl"
+    [src]="url"
+    alt=""
+  />
+  <div
+    class="absolute left-0 p-10 my-auto text-white flex flex-col items-center justify-center"
+  >
+    <span class="text-7xl font-bold drop-shadow-xl my-5"
+      >{{ temperature }}°C</span
+    >
+    <span class="text-3xl font-semibold drop-shadow-lg">{{ city }}</span>
+    <p class="text-xl font-semibold drop-shadow-md mx-auto text-center">
+      {{ desc }}
+    </p>
+  </div>
+</div>

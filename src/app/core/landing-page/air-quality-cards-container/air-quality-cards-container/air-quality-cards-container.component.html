@@ -1,0 +1,14 @@
+<section class="">
+  <div
+    class="p-10 min-h-[15rem] flex gap-5 items-center justify-center flex-wrap h-fit"
+  >
+    @for(item of items; track item.name){
+    <app-air-quality-card
+      [title]="item.name"
+      [desc]="item.desc"
+      [icon]="item.icon"
+    ></app-air-quality-card>
+
+    }
+  </div>
+</section>
