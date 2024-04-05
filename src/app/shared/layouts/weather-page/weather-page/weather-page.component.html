@@ -1,20 +1,15 @@
 <div class="relative w-screen h-screen">
   <img
-    class="absolute top-0 left-0 h-full w-full object-cover rounded-3xl"
+    class="absolute top-0 left-0 h-full w-full object-cover rounded-3xl z-[-1]"
     src="../../../../../assets/weather/autumnly.png"
     alt=""
   />
-  <div>
-    <div
-      name="menu"
-      class="w-[30rem] h-[10rem] mx-auto my-auto backdrop-blur-md rounded-2xl"
-    >
-      <div class="">Select a city</div>
-      <div>Sort results</div>
-    </div>
-  </div>
   <div
-    name="results"
-    class="w-[30rem] h-[20rem] mx-auto my-auto backdrop-blur-md rounded-2xl"
-  ></div>
+    class="w-fit mx-auto backdrop-blur-lg rounded-lg shadow-md flex items-center justify-center p-10"
+  >
+    <app-weather-form></app-weather-form>
+  </div>
+  <div name="cards container">
+    <app-weather-city-card></app-weather-city-card>
+  </div>
 </div>

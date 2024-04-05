@@ -5,7 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class WeatherCardsService {
   constructor() {}
-  dataForCards: any[] = [
+
+  citiesArrays: string[] = ['Wrocław', 'New York', 'Tokyo'];
+  regionArrays: string[] = ['Poland', 'USA', 'Germany'];
+
+  mainCities: any[] = [
     {
       city: 'Puerto rico',
       temperature: 25,
@@ -26,6 +30,14 @@ export class WeatherCardsService {
     },
   ];
   getCards() {
-    return this.dataForCards;
+    return this.mainCities;
+  }
+
+  getCitiesArray() {
+    return this.citiesArrays;
+  }
+
+  getRegionsArray() {
+    return this.regionArrays;
   }
 }

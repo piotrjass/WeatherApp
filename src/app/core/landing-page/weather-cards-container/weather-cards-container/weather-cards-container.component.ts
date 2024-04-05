@@ -12,11 +12,8 @@ import { RouterModule, RouterLink } from '@angular/router';
 })
 export class WeatherCardsContainerComponent {
   cards: any[] = [];
-  // constructor(private cardsService: CardsService) {}
   constructor(private weatherCardsService: WeatherCardsService) {}
   ngOnInit(): void {
     this.cards = this.weatherCardsService.getCards();
   }
 }
-
-// ../../../../../assets/weather/autumnly.png
