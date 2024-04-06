@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+// components
 import { WeatherCardsService } from '../../../../shared/services/weather-cards.service';
 
 @Component({
