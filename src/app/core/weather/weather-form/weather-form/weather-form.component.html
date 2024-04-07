@@ -3,22 +3,31 @@
   (ngSubmit)="onSubmit(f)"
   class="flex flex-col gap-5 min-w-[30rem]"
 >
-  <div class="flex gap-5">
-    <div class="flex flex-col items-center justify-center">
-      <label for="" class="text-xl font-semibold">Choose a region</label>
+  <label>
+    Region:
+    <input
+      type="text"
+      [(ngModel)]="regionName"
+      name="region"
+      (input)="onRegionChange()"
+    />
+  </label>
 
-      <select
-        name="region"
-        ngModel
-        #region="ngModel"
-        class="w-[10rem] bg-transparent border-2 border-black rounded-full px-3 py-1 my-2 font-semibold text-center"
-      >
-        @for(region of regionArrays; track region){
-        <option [value]="region" class="p-3">{{ region }}</option>
-        }
-      </select>
-    </div>
-    <div class="flex flex-col items-center justify-center">
+  <select
+    [(ngModel)]="weatherCardsService.selectedRegionInService"
+    name="region"
+    (change)="onRegionSelectChange()"
+  >
+    @for(region of weatherCardsService.regionArrays; track region){
+    <option [value]="region">
+      {{ region }}
+    </option>
+    }
+  </select>
+  Selected Region: {{ weatherCardsService.selectedRegionInService }}
+  <button>submit</button>
+
+  <!-- <div class="flex flex-col items-center justify-center">
       <label for="" class="text-xl font-semibold">Choose a city</label>
       <select
         #city="ngModel"
@@ -53,5 +62,5 @@
     >
       Load data
     </button>
-  </div>
+  </div> -->
 </form>

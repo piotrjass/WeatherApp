@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TopNavbarComponent } from '../../../../core/landing-page/top-navbar/top-navbar/top-navbar.component';
 import { WeatherFormComponent } from '../../../../core/weather/weather-form/weather-form/weather-form.component';
 import { WeatherCityCardComponent } from '../../../../core/weather/weather-city-card/weather-city-card/weather-city-card.component';
@@ -19,12 +19,21 @@ import { AirQualityCardComponent } from '../../../../core/landing-page/air-quali
 })
 export class WeatherPageComponent {
   constructor(private weatherCardsService: WeatherCardsService) {}
-  citiesArrays: string[] = [];
-  regionArrays: string[] = [];
-  getCities() {
-    this.citiesArrays = this.weatherCardsService.getCitiesArray();
+  region: string = '';
+  test: string = 'test';
+  ngOnInit(): void {
+    this.weatherCardsService.getRegion().subscribe((region) => {
+      this.region = region;
+    });
   }
-  getRegions() {
-    this.regionArrays = this.weatherCardsService.getRegionsArray();
-  }
+  // // selectedRegion: string = this.weatherCardsService.getSelectedRegion();
+  // // selectedCity: string = this.weatherCardsService.getSelectedCity();
+  // citiesArrays: string[] = [];
+  // regionArrays: string[] = [];
+  // getCities() {
+  //   this.citiesArrays = this.weatherCardsService.getCitiesArray();
+  // }
+  // getRegions() {
+  //   this.regionArrays = this.weatherCardsService.getRegionsArray();
+  // }
 }

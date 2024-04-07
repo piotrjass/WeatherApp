@@ -11,27 +11,38 @@ import { WeatherCardsService } from '../../../../shared/services/weather-cards.s
   styleUrl: './weather-form.component.css',
 })
 export class WeatherFormComponent {
-  onSubmit(f: NgForm) {
-    const selectedRegion = f.value.region;
-    const selectedCity = f.value.city;
-    const selectedSort = f.value.sort;
-    console.log('Selected region:', selectedRegion);
-    console.log('Selected city:', selectedCity);
-    console.log('Selected sort:', selectedSort);
-    console.log('submitted!');
+  constructor(public weatherCardsService: WeatherCardsService) {}
+  regionName: string = '';
+  selectedRegion: string = '';
+  onSubmit(f: NgForm): void {
+    this.weatherCardsService.setRegion(this.regionName);
   }
-  constructor(private weatherCardsService: WeatherCardsService) {}
-  citiesArrays: string[] = [];
-  regionArrays: string[] = [];
-  getCities() {
-    this.citiesArrays = this.weatherCardsService.getCitiesArray();
+  onRegionChange(): void {
+    this.weatherCardsService.setRegion(this.regionName);
   }
-  getRegions() {
-    this.regionArrays = this.weatherCardsService.getRegionsArray();
+  onRegionSelectChange(): void {
+    this.weatherCardsService.setRegion(
+      this.weatherCardsService.selectedRegionInService,
+    );
   }
 
-  ngOnInit(): void {
-    this.getCities();
-    this.getRegions();
-  }
+  // onSubmit(f: NgForm) {
+  //   const selectedRegion = f.value.region;
+  //   const selectedCity = f.value.city;
+  //   const selectedSort = f.value.sort;
+  //   console.log('Selected region:', selectedRegion);
+  //   console.log('Selected city:', selectedCity);
+  //   console.log('Selected sort:', selectedSort);
+  //   console.log('submitted!');
+  // }
+
+  // citiesArrays: string[] = [];
+  // regionArrays: string[] = [];
+  // getCities() {
+  //   this.citiesArrays = this.weatherCardsService.getCitiesArray();
+  // }
+  // getRegions() {
+  //   this.regionArrays = this.weatherCardsService.getRegionsArray();
+  // }
+  // ngOnInit(): void {}
 }
