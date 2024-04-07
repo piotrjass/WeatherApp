@@ -25,6 +25,9 @@ export class WeatherFormComponent {
       this.weatherCardsService.selectedRegionInService,
     );
   }
+  onCitySelectChange(): void {
+    console.log('select city called!');
+  }
 
   // onSubmit(f: NgForm) {
   //   const selectedRegion = f.value.region;

@@ -13,12 +13,29 @@ import {
   providedIn: 'root',
 })
 export class WeatherCardsService {
+  selectedRegionInService: string = '';
+  selectedCityInService: string = '';
+  citiesArrays: string[] = ['Warsaw', 'New York', 'Tokyo'];
+  citiesToSelect: string[] = [];
+  selectedCity: string = '';
+  regionArrays: string[] = [
+    'Europe',
+    'Asia',
+    'North America',
+    'South America',
+    'Oceania',
+    'Africa',
+  ];
+
   constructor() {}
   private regionSubject: BehaviorSubject<string> = new BehaviorSubject<string>(
     '',
   );
   setRegion(region: string): void {
+    this.citiesToSelect = [];
     this.regionSubject.next(region);
+    this.setCitiesToSelect(region);
+    console.log(this.citiesToSelect);
   }
 
   getRegion(): Observable<string> {
@@ -50,19 +67,6 @@ export class WeatherCardsService {
         break;
     }
   }
-
-  selectedRegionInService: string = '';
-  selectedCityInService: string = '';
-  citiesArrays: string[] = ['Warsaw', 'New York', 'Tokyo'];
-  citiesToSelect: string[] = [];
-  regionArrays: string[] = [
-    'Europe',
-    'Asia',
-    'North America',
-    'South America',
-    'Oceania',
-    'Africa',
-  ];
 
   mainCities: any[] = [
     {
