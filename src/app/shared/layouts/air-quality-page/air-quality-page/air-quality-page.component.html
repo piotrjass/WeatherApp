@@ -1,1 +1,15 @@
-<p>air-quality-page works!</p>
+<div class="relative w-screen h-screen">
+  <img
+    class="absolute top-0 left-0 h-full w-full object-cover z-[-1]"
+    src="../../../../../assets/weather/smog-wind.jpg"
+    alt=""
+  />
+  <div
+    class="w-fit mx-auto backdrop-blur-lg rounded-lg shadow-md flex items-center justify-center p-10"
+  >
+    <app-weather-form></app-weather-form>
+  </div>
+  <div name="cards container">
+    <app-weather-city-card></app-weather-city-card>
+  </div>
+</div>

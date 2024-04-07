@@ -15,12 +15,16 @@ import remixicon from '@ng-icons/remixicon';
 import { remixSurgicalMaskLine } from '@ng-icons/remixicon';
 //
 import bootstrapIcons from '@ng-icons/bootstrap-icons';
-import { bootstrapFlower1 } from '@ng-icons/bootstrap-icons';
+import {
+  bootstrapFlower1,
+  bootstrapArrowUpRightCircleFill,
+  bootstrapGlobeAmericas,
+} from '@ng-icons/bootstrap-icons';
 
 @Component({
   selector: 'app-air-quality-cards-container',
   standalone: true,
-  imports: [AirQualityCardComponent, RouterModule, RouterLink],
+  imports: [AirQualityCardComponent, RouterModule, RouterLink, NgIconComponent],
   templateUrl: './air-quality-cards-container.component.html',
   styleUrl: './air-quality-cards-container.component.css',
   viewProviders: [
@@ -30,6 +34,8 @@ import { bootstrapFlower1 } from '@ng-icons/bootstrap-icons';
       remixSurgicalMaskLine,
       bootstrapFlower1,
       tablerFlower,
+      bootstrapArrowUpRightCircleFill,
+      bootstrapGlobeAmericas,
     }),
   ],
 })

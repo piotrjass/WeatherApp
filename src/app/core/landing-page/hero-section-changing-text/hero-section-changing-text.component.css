@@ -127,7 +127,7 @@ body {
 
 .text-slide > div {
   display: inline-block;
-  text-align: left;
+  text-align: center;
   height: 40px;
   line-height: 40px;
   overflow: hidden;
