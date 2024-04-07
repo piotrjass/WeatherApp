@@ -1,1 +1,13 @@
-<p>air-quality-card works!</p>
+<div
+  class="shadow-md w-[50%] mx-auto p-10 flex flex-col gap-5 rounded-3xl backdrop-blur-lg"
+>
+  <div class="flex gap-10 items-end">
+    <p class="text-xl font-semibold">{{ City }}</p>
+    <p class="text-md font-semibold text-gray-600">{{ Country }}</p>
+  </div>
+  <div class="flex items-end justify-between">
+    <p class="text-5xl font-bold">Index</p>
+    <p class="text-gray-500">{{ Desc }}</p>
+    <p class="font-semibold italic">{{ Date }}</p>
+  </div>
+</div>

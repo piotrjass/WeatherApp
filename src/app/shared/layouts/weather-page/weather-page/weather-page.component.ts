@@ -3,11 +3,17 @@ import { TopNavbarComponent } from '../../../../core/landing-page/top-navbar/top
 import { WeatherFormComponent } from '../../../../core/weather/weather-form/weather-form/weather-form.component';
 import { WeatherCityCardComponent } from '../../../../core/weather/weather-city-card/weather-city-card/weather-city-card.component';
 import { WeatherCardsService } from '../../../services/weather-cards.service';
+import { AirQualityCardComponent } from '../../../../core/landing-page/air-quality-card/air-quality-card/air-quality-card.component';
 
 @Component({
   selector: 'app-weather-page',
   standalone: true,
-  imports: [TopNavbarComponent, WeatherFormComponent, WeatherCityCardComponent],
+  imports: [
+    TopNavbarComponent,
+    WeatherFormComponent,
+    WeatherCityCardComponent,
+    AirQualityCardComponent,
+  ],
   templateUrl: './weather-page.component.html',
   styleUrl: './weather-page.component.css',
 })
