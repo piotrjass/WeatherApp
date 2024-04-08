@@ -8,9 +8,9 @@ import { Component, Input } from '@angular/core';
   styleUrl: './weather-city-card.component.css',
 })
 export class WeatherCityCardComponent {
-  @Input() City: string = '';
-  @Input() Country: string = '';
-  @Input() Temperature: number = 0;
-  @Input() Desc: string = '';
-  @Input() Date: string = '';
+  @Input() city: string = '';
+  @Input() temperature: number = 0;
+  @Input() longDesc: string = '';
+  @Input() shortDesc: string = '';
+  @Input() date: string = '';
 }

@@ -18,7 +18,7 @@ import { AirQualityCardComponent } from '../../../../core/landing-page/air-quali
   styleUrl: './weather-page.component.css',
 })
 export class WeatherPageComponent {
-  constructor(private weatherCardsService: WeatherCardsService) {}
+  constructor(public weatherCardsService: WeatherCardsService) {}
   region: string = '';
   test: string = 'test';
   ngOnInit(): void {

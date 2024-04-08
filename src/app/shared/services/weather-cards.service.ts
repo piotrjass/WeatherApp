@@ -22,6 +22,7 @@ export class WeatherCardsService {
   citiesArrays: string[] = ['Warsaw', 'New York', 'Tokyo'];
   citiesToSelect: string[] = [];
   selectedCity: string = '';
+  citiesDataObjectArray: any[] = [];
   regionArrays: string[] = [
     'Europe',
     'Asia',
@@ -38,11 +39,20 @@ export class WeatherCardsService {
 
   async getDataForASpecifiedCity() {
     try {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.selectedCity},uk&APPID=${this.openWeatherMapAPIKey}`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.selectedCity}&appid=${this.openWeatherMapAPIKey}`;
       this.http.get(url).subscribe((data: any) => {
         this.responseData$ = data;
-        console.log('Response Data:', this.responseData$);
-        console.log('called!');
+        const weatherMain = data.weather[0].main;
+        const weatherDescription = data.weather[0].description;
+        const mainTemp = this.kelvinToCelsius(data.main.temp);
+        const cityName = data.name;
+        this.citiesDataObjectArray.push({
+          cityName: cityName,
+          temp: mainTemp,
+          shortDesc: weatherMain,
+          longDesc: weatherDescription,
+        });
+        console.log(this.citiesDataObjectArray);
       });
     } catch (error) {
       console.error(error);
@@ -51,8 +61,12 @@ export class WeatherCardsService {
 
   getDataForASpecifiedRegion(region: string) {}
 
+  kelvinToCelsius(kelvin: number): number {
+    const celsius = kelvin - 273.15;
+    return Math.round(celsius);
+  }
+
   setRegion(region: string): void {
-    this.citiesToSelect = [];
     this.regionSubject.next(region);
     this.setCitiesToSelect(region);
     this.selectedCity = '';
