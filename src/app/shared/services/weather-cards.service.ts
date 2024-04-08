@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from '../../../enviroments/environment.development';
+import { HttpClient } from '@angular/common/http';
+// data extracted form xlxs file with all the cities sorted by region
 import {
   african_cities,
   asian_cities,
@@ -13,6 +16,7 @@ import {
   providedIn: 'root',
 })
 export class WeatherCardsService {
+  openWeatherMapAPIKey = environment.APPID;
   selectedRegionInService: string = '';
   selectedCityInService: string = '';
   citiesArrays: string[] = ['Warsaw', 'New York', 'Tokyo'];
@@ -26,15 +30,32 @@ export class WeatherCardsService {
     'Oceania',
     'Africa',
   ];
-
-  constructor() {}
+  responseData$: Observable<any> | undefined;
+  constructor(private http: HttpClient) {}
   private regionSubject: BehaviorSubject<string> = new BehaviorSubject<string>(
     '',
   );
+
+  async getDataForASpecifiedCity() {
+    try {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.selectedCity},uk&APPID=${this.openWeatherMapAPIKey}`;
+      this.http.get(url).subscribe((data: any) => {
+        this.responseData$ = data;
+        console.log('Response Data:', this.responseData$);
+        console.log('called!');
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  getDataForASpecifiedRegion(region: string) {}
+
   setRegion(region: string): void {
     this.citiesToSelect = [];
     this.regionSubject.next(region);
     this.setCitiesToSelect(region);
+    this.selectedCity = '';
     console.log(this.citiesToSelect);
   }
 

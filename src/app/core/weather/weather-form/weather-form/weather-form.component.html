@@ -19,8 +19,25 @@
         }
       </select>
     </div>
+
+    @if(weatherCardsService.selectedCity === ""){
     <div class="flex flex-col items-center justify-start gap-5">
-      <label for="" class="text-xl font-semibold">Select a city</label>
+      <label for="" class="text-xl font-semibold">Sort data</label>
+      <select
+        #sort="ngModel"
+        name="sort"
+        class="w-[10rem] bg-transparent border-2 border-black rounded-full px-3 py-1 my-2 font-semibold text-center"
+        ngModel
+      >
+        <option value="Alphabetically">Alphabetically</option>
+        <option value="HighestTemp">Highest temperature</option>
+        <option value="LowestTemp">Lowest temperature</option>
+      </select>
+    </div>
+    }
+
+    <div class="flex flex-col items-center justify-start gap-5">
+      <label for="" class="text-xl font-semibold">Specific city</label>
       <select
         [(ngModel)]="weatherCardsService.selectedCity"
         name="city"
@@ -35,43 +52,18 @@
       </select>
     </div>
   </div>
-  <button>Region weather</button>
-  <button>City weather</button>
-
-  <!-- <div class="flex flex-col items-center justify-center">
-      <label for="" class="text-xl font-semibold">Choose a city</label>
-      <select
-        #city="ngModel"
-        name="city"
-        class="w-[10rem] bg-transparent border-2 border-black rounded-full px-3 py-1 my-2 font-semibold text-center"
-        ngModel
-      >
-        @for(city of citiesArrays; track city){
-        <option [value]="city" class="p-3">{{ city }}</option>
-        }
-      </select>
-    </div>
-
-    <div class="flex flex-col items-center justify-center">
-      <label for="" class="text-xl font-semibold">Sort data</label>
-      <select
-        #sort="ngModel"
-        name="sort"
-        class="w-[10rem] bg-transparent border-2 border-black rounded-full px-3 py-1 my-2 font-semibold text-center"
-        ngModel
-      >
-        <option value="Alphabetically">Alphabetically</option>
-        <option value="HighestTemp">Highest temperature</option>
-        <option value="LowestTemp">Lowest temperature</option>
-      </select>
-    </div>
-  </div>
-  <div class="mx-auto">
-    <button
-      type="submit"
-      class="px-3 py-1 bg-transparent border-2 border-black text-lg font-semibold rounded-full"
-    >
-      Load data
-    </button>
-  </div> -->
+  @if(weatherCardsService.selectedCity === ""){
+  <button
+    class="px-3 py-1 bg-transparent border-2 border-black text-lg font-semibold rounded-full"
+  >
+    Region weather
+  </button>
+  } @if(weatherCardsService.selectedCity !== ""){
+  <button
+    class="px-3 py-1 bg-transparent border-2 border-black text-lg font-semibold rounded-full"
+    (click)="weatherCardsService.getDataForASpecifiedCity()"
+  >
+    City weather
+  </button>
+  }
 </form>
