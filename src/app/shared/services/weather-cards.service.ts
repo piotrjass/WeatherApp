@@ -22,7 +22,9 @@ export class WeatherCardsService {
   citiesArrays: string[] = ['Warsaw', 'New York', 'Tokyo'];
   citiesToSelect: string[] = [];
   selectedCity: string = '';
+  selectedSort: string = '';
   citiesDataObjectArray: any[] = [];
+  sortedCitiesDataObjectArray: any[] = [];
   regionArrays: string[] = [
     'Europe',
     'Asia',
@@ -70,7 +72,6 @@ export class WeatherCardsService {
     this.regionSubject.next(region);
     this.setCitiesToSelect(region);
     this.selectedCity = '';
-    console.log(this.citiesToSelect);
   }
 
   getRegion(): Observable<string> {
@@ -97,10 +98,46 @@ export class WeatherCardsService {
       case 'South America':
         this.citiesToSelect = south_american_cities;
         break;
-      default:
-        this.citiesToSelect = [];
+    }
+  }
+
+  sortArray(): void {
+    switch (this.selectedSort) {
+      case 'Alphabetically':
+        this.sortByCityName();
+        break;
+      case 'HighestTemp':
+        this.sortByTemperatureDescending();
+        break;
+      case 'LowestTemp':
+        this.sortByTemperatureAscending();
         break;
     }
+  }
+
+  sortByCityName() {
+    this.sortedCitiesDataObjectArray = this.citiesDataObjectArray
+      .slice()
+      .sort((a, b) => a.cityName.localeCompare(b.cityName));
+    this.updateArray();
+  }
+
+  updateArray() {
+    this.citiesDataObjectArray = this.sortedCitiesDataObjectArray;
+  }
+  sortByTemperatureAscending() {
+    this.sortedCitiesDataObjectArray = this.citiesDataObjectArray
+      .slice()
+      .sort((a, b) => a.temp - b.temp);
+    console.log(this.sortedCitiesDataObjectArray);
+    this.updateArray();
+  }
+  sortByTemperatureDescending() {
+    this.sortedCitiesDataObjectArray = this.citiesDataObjectArray
+      .slice()
+      .sort((a, b) => b.temp - a.temp);
+    this.updateArray();
+    console.log(this.sortedCitiesDataObjectArray);
   }
 
   mainCities: any[] = [

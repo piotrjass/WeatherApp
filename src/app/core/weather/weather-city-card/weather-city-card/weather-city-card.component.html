@@ -1,13 +1,16 @@
 <div
-  class="shadow-md w-[50%] mx-auto p-10 flex flex-col gap-5 rounded-3xl backdrop-blur-lg"
+  class="shadow-md md:w-[50%] mx-auto p-5 flex flex-col gap-5 rounded-lg backdrop-blur-lg"
 >
   <div class="flex gap-10 items-end">
-    <p class="text-xl font-semibold">{{ city }}</p>
+    <p class="text-lg font-semibold drop-shadow-md">{{ city }}</p>
   </div>
-  <div class="flex items-end justify-between">
-    <p class="text-5xl font-bold">{{ temperature }}°C</p>
-    <p class="text-gray-500">{{ longDesc }}</p>
-    <p class="text-gray-500">{{ shortDesc }}</p>
+  <div class="flex items-end gap-5">
+    <p class="text-5xl font-bold drop-shadow-md">{{ temperature }}°C</p>
+    <div class="flex flex-col">
+      <p class="text-gray-500 text-md font-semibold">{{ shortDesc }}</p>
+      <p class="text-gray-500 italic">{{ longDesc }}</p>
+    </div>
+
     <p class="font-semibold italic">{{ date }}</p>
   </div>
 </div>
