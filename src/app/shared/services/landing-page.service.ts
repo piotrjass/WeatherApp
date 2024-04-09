@@ -14,6 +14,7 @@ export class LandingPageService {
   );
   openWeatherMapAPIKey = environment.APPID;
   responseData$: Observable<any> | undefined;
+  citiesTemperatures: any[] = [];
   async getDataForASpecifiedCity(city: string) {
     try {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.openWeatherMapAPIKey}`;
@@ -21,8 +22,8 @@ export class LandingPageService {
         this.responseData$ = data;
         const mainTemp = this.kelvinToCelsius(data.main.temp);
         const cityName = data.name;
-        console.log(mainTemp);
-        return mainTemp;
+        this.citiesTemperatures.push(mainTemp, cityName);
+        console.log(this.citiesTemperatures);
       });
     } catch (error) {
       console.error(error);
@@ -54,9 +55,15 @@ export class LandingPageService {
     for (let i = 0; i < this.mainCities.length; i++) {
       const cityName = this.mainCities[i].city;
       console.log('city is ', cityName);
-      const temperature = await this.getDataForASpecifiedCity(cityName);
-      console.log('temperature is' + temperature);
-      this.mainCities[i].temperature = temperature;
+      await this.getDataForASpecifiedCity(cityName);
+    }
+    for (let i = 0; i < this.citiesTemperatures.length; i += 2) {
+      const temperature = this.citiesTemperatures[i];
+      const cityName = this.citiesTemperatures[i + 1];
+      const city = this.mainCities.find((c) => c.city === cityName);
+      if (city) {
+        city.temperature = temperature;
+      }
     }
   }
 

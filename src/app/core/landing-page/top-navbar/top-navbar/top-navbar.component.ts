@@ -12,8 +12,6 @@ import { AirQualityService } from '../../../../shared/services/air-quality.servi
   styleUrl: './top-navbar.component.css',
 })
 export class TopNavbarComponent {
-  // sections: string[] = ['Weather', 'Air Quality', 'More'];
-
   sections: any[] = [
     {
       name: 'Weather',
