@@ -9,6 +9,7 @@ import {
   bootstrapGlobeAmericas,
   bootstrapArrowUpRightCircleFill,
 } from '@ng-icons/bootstrap-icons';
+import { LandingPageService } from '../../../../shared/services/landing-page.service';
 
 @Component({
   selector: 'app-weather-cards-container',
@@ -22,8 +23,11 @@ import {
 })
 export class WeatherCardsContainerComponent {
   cards: any[] = [];
-  constructor(private weatherCardsService: WeatherCardsService) {}
+  constructor(
+    private weatherCardsService: WeatherCardsService,
+    private landingPageService: LandingPageService,
+  ) {}
   ngOnInit(): void {
-    this.cards = this.weatherCardsService.getCards();
+    this.cards = this.landingPageService.getCards();
   }
 }

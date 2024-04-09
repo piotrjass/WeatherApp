@@ -5,15 +5,17 @@
 >
   <div class="flex gap-5 flex-col sm:flex-row">
     <div class="flex flex-col items-center justify-start gap-5">
-      <label for="" class="text-xl font-semibold">Select a region</label>
+      <label for="" class="text-white text-xl font-semibold"
+        >Select a region</label
+      >
       <select
         [(ngModel)]="weatherCardsService.selectedRegionInService"
         name="region"
         (change)="onRegionSelectChange()"
-        class="w-[10rem] bg-transparent border-2 border-black rounded-full px-3 py-1 my-2 font-semibold text-center"
+        class="w-[10rem] bg-transparent border-2 border-white rounded-full px-3 py-1 my-2 font-semibold text-center text-white"
       >
         @for(region of weatherCardsService.regionArrays; track region){
-        <option [value]="region">
+        <option [value]="region" class="text-black">
           {{ region }}
         </option>
         }
@@ -21,15 +23,17 @@
     </div>
 
     <div class="flex flex-col items-center justify-start gap-5">
-      <label for="" class="text-xl font-semibold">Select a city</label>
+      <label for="" class="text-white text-xl font-semibold"
+        >Select a city</label
+      >
       <select
         [(ngModel)]="weatherCardsService.selectedCity"
         name="city"
         (change)="onCitySelectChange()"
-        class="w-[10rem] bg-transparent border-2 border-black rounded-full px-3 py-1 my-2 font-semibold text-center"
+        class="w-[10rem] bg-transparent border-2 border-white rounded-full px-3 py-1 my-2 font-semibold text-center text-white"
       >
         @for(city of weatherCardsService.citiesToSelect; track city){
-        <option [value]="city">
+        <option [value]="city" class="text-black">
           {{ city }}
         </option>
         }
@@ -44,7 +48,7 @@
   </button> -->
   <!-- } @if(weatherCardsService.selectedCity !== ""){ -->
   <button
-    class="px-3 py-1 bg-transparent border-2 border-black text-lg font-semibold rounded-full"
+    class="px-3 py-1 bg-transparent border-2 border-white text-lg font-semibold rounded-full text-white"
     (click)="weatherCardsService.getDataForASpecifiedCity()"
   >
     City weather

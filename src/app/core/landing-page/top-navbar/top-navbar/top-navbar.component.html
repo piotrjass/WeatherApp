@@ -1,7 +1,10 @@
 <nav class="mx-auto p-2 md:w-[50%] w-[80%] flex items-center justify-center">
   <div class="flex gap-5 md:gap-10 items-center justify-center">
-    @for(section of sections; track section){
-    <app-top-navbar-item [title]="section"></app-top-navbar-item>
+    @for(section of sections; track section.name){
+    <app-top-navbar-item
+      [title]="section.name"
+      (click)="scrollTo(section.scrollToID)"
+    ></app-top-navbar-item>
     }
   </div>
 </nav>
