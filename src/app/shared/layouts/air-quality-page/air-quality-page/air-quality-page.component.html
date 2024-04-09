@@ -8,10 +8,20 @@
     <div
       class="w-fit mx-auto backdrop-blur-lg rounded-lg shadow-md flex items-center justify-center p-10"
     >
-      <app-weather-form></app-weather-form>
+      <app-air-quality-form></app-air-quality-form>
     </div>
     <div name="cards container">
-      <app-air-quality-card></app-air-quality-card>
+      @for(city of airQualityService.citiesDataObjectArray; track city.city){
+      <app-air-quality-card
+        [name]="city.name"
+        [co]="city.co"
+        [no2]="city.no2"
+        [so2]="city.so2"
+        [pm2_5]="city.pm2_5"
+        [pm10]="city.pm10"
+        [nh3]="city.nh3"
+      ></app-air-quality-card
+      >}
     </div>
   </div>
 </div>

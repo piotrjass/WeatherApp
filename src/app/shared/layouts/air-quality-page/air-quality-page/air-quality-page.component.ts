@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
-import { WeatherFormComponent } from '../../../../core/weather/weather-form/weather-form/weather-form.component';
-
-import { WeatherCityCardComponent } from '../../../../core/weather/weather-city-card/weather-city-card/weather-city-card.component';
+import { AirQualityFormComponent } from '../../../../core/air-quality/air-quality-form/air-quality-form/air-quality-form.component';
 import { AirQualityCardComponent } from '../../../../core/air-quality/air-quality-card/air-quality-card.component';
+import { AirQualityService } from '../../../services/air-quality.service';
 
 @Component({
   selector: 'app-air-quality-page',
   standalone: true,
-  imports: [
-    WeatherFormComponent,
-    WeatherCityCardComponent,
-    AirQualityCardComponent,
-  ],
+  imports: [AirQualityFormComponent, AirQualityCardComponent],
   templateUrl: './air-quality-page.component.html',
   styleUrl: './air-quality-page.component.css',
 })
-export class AirQualityPageComponent {}
+export class AirQualityPageComponent {
+  constructor(public airQualityService: AirQualityService) {}
+  city: string = 'tokio';
+}

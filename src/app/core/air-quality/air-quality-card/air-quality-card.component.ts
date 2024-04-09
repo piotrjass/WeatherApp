@@ -8,9 +8,11 @@ import { Component, Input } from '@angular/core';
   styleUrl: './air-quality-card.component.css',
 })
 export class AirQualityCardComponent {
-  @Input() City: string = '';
-  @Input() Country: string = '';
-  @Input() Temperature: number = 0;
-  @Input() Desc: string = '';
-  @Input() Date: string = '';
+  @Input() name: string = '';
+  @Input() co: number = 0;
+  @Input() no2: number = 0;
+  @Input() so2: number = 0;
+  @Input() pm2_5: number = 0;
+  @Input() pm10: number = 0;
+  @Input() nh3: number = 0;
 }

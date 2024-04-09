@@ -52,11 +52,11 @@
   <!-- } -->
   @if(weatherCardsService.citiesDataObjectArray.length > 1){
   <div class="flex text-gray-400 items-center justify-start gap-5">
-    <label for="" class="italic">Sort data</label>
+    <label for="" class="italic">sort data</label>
     <select
       [(ngModel)]="weatherCardsService.selectedSort"
       name="sort"
-      class="w-[10rem] bg-transparent border-2 border-gray-400 rounded-full px-3 py-1"
+      class="w-[10rem] bg-transparent border-2 border-gray-400 rounded-full px-3 py-1 italic"
       (click)="weatherCardsService.sortArray()"
     >
       <option value="Alphabetically">Alphabetically</option>
