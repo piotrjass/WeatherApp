@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AirQualityService {
   constructor(private http: HttpClient) {}
+
   selectedCity: string = '';
   selectedCityCoordinates: { lat: number; lon: number } = { lat: 0, lon: 0 };
   citiesDataObjectArray: any[] = [];
@@ -17,7 +18,7 @@ export class AirQualityService {
   private regionSubject: BehaviorSubject<string> = new BehaviorSubject<string>(
     '',
   );
-
+  selectedSort: string = '';
   setSelectedCity() {}
   async checkAirQuality() {
     //  find lat and lon
@@ -65,6 +66,15 @@ export class AirQualityService {
     }
   }
 
+  sortByCityName() {
+    this.sortedCitiesDataObjectArray = this.citiesDataObjectArray
+      .slice()
+      .sort((a, b) => a.name.localeCompare(b.name));
+    this.updateArray();
+  }
+  updateArray() {
+    this.citiesDataObjectArray = this.sortedCitiesDataObjectArray;
+  }
   citiesToChooseFrom: any[] = [
     {
       name: 'Tokio',
@@ -92,6 +102,15 @@ export class AirQualityService {
       lon: 31,
     },
   ];
+
+  sortArray(): void {
+    switch (this.selectedSort) {
+      case 'Alphabetically':
+        this.sortByCityName();
+        break;
+    }
+  }
+
   mainCities: string[] = ['Puerto Rico', 'Wrocław', 'Yaktusk'];
   getMainCities() {
     return this.mainCities;

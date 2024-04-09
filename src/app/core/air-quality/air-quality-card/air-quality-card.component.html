@@ -1,15 +1,27 @@
 <div
-  class="shadow-md w-[50%] mx-auto p-10 flex flex-col gap-5 rounded-3xl backdrop-blur-lg"
+  class="shadow-md w-[50%] mx-auto p-10 flex flex-col gap-5 rounded-lg backdrop-blur-lg"
 >
   <div class="flex gap-10 items-center justify-center">
-    <p class="text-5xl font-semibold drop-shadow-lg">{{ name }}</p>
+    <p class="text-4xl font-semibold drop-shadow-lg">{{ name }}</p>
   </div>
   <div class="flex items-end justify-between">
-    <p>Co:{{ co }}</p>
-    <p>no2: {{ no2 }}</p>
-    <p>so2: {{ so2 }}</p>
-    <p>pm2,5: {{ pm2_5 }}</p>
-    <p>pm10 {{ pm10 }}</p>
-    <p>nh3 {{ nh3 }}</p>
+    <p class="text-gray-500 font-bold text-sm">
+      CO: <span class="text-black font-bold text-lg">{{ co }}</span>
+    </p>
+    <p class="text-gray-500 font-bold text-sm">
+      NO₂: <span class="text-black font-bold text-lg">{{ no2 }}</span>
+    </p>
+    <p class="text-gray-500 font-bold text-sm">
+      SO₂: <span class="text-black font-bold text-lg">{{ so2 }}</span>
+    </p>
+    <p class="text-gray-500 font-bold text-sm">
+      PM2,5: <span class="text-black font-bold text-lg">{{ pm2_5 }}</span>
+    </p>
+    <p class="text-gray-500 font-bold text-sm">
+      PM10:<span class="text-black font-bold text-lg">{{ pm10 }}</span>
+    </p>
+    <p class="text-gray-500 font-bold text-sm">
+      Nh₃: <span class="text-black font-bold text-lg">{{ nh3 }}</span>
+    </p>
   </div>
 </div>

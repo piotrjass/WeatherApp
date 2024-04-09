@@ -4,13 +4,16 @@
     src="../../../../../assets/weather/smog-wind.jpg"
     alt=""
   />
-  <div class="flex flex-col p-10 gap-10">
+  <div class="flex flex-col p-5 gap-5">
     <div
-      class="w-fit mx-auto backdrop-blur-lg rounded-lg shadow-md flex items-center justify-center p-10"
+      class="md:w-[50%] mx-auto backdrop-blur-lg rounded-lg shadow-md flex items-center justify-center p-5"
     >
       <app-air-quality-form></app-air-quality-form>
     </div>
-    <div name="cards container">
+    <div
+      name="cards container"
+      class="flex flex-col gap-5 max-h-[10rem] md:max-h-[30rem] h-[20%] md:h-[25rem] overflow-y-scroll"
+    >
       @for(city of airQualityService.citiesDataObjectArray; track city.city){
       <app-air-quality-card
         [name]="city.name"
