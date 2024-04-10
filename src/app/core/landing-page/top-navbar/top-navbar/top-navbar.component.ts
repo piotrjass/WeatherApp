@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-
+// components
 import { TopNavbarItemComponent } from '../../top-navbar-item/top-navbar-item/top-navbar-item.component';
-import { RouterModule } from '@angular/router';
+// serivces
 import { AirQualityService } from '../../../../shared/services/air-quality.service';
-
+// router
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-top-navbar',
   standalone: true,
@@ -28,7 +29,7 @@ export class TopNavbarComponent {
   ];
   scrollTo(sectionId: string) {
     const section = document.getElementById(sectionId);
-    console.log(section);
+
     if (section) {
       section.scrollIntoView({
         behavior: 'smooth',

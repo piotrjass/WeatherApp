@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// animations library
 import { RoughNotationModule } from 'ng-rough-notation';
 @Component({
   selector: 'app-hero-section-main-text',

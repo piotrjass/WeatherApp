@@ -40,20 +40,14 @@
       </select>
     </div>
   </div>
-  <!-- @if(weatherCardsService.selectedCity === ""){ -->
-  <!-- <button
-    class="px-3 py-1 bg-transparent border-2 border-black text-lg font-semibold rounded-full"
-  >
-    Region weather
-  </button> -->
-  <!-- } @if(weatherCardsService.selectedCity !== ""){ -->
+
   <button
     class="px-3 py-1 bg-transparent border-2 border-white text-lg font-semibold rounded-full text-white"
     (click)="weatherCardsService.getDataForASpecifiedCity()"
   >
     City weather
   </button>
-  <!-- } -->
+
   @if(weatherCardsService.citiesDataObjectArray.length > 1){
   <div class="flex text-gray-400 items-center justify-start gap-5">
     <label for="" class="italic">sort data</label>

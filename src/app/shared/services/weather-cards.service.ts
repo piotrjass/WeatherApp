@@ -54,7 +54,6 @@ export class WeatherCardsService {
           shortDesc: weatherMain,
           longDesc: weatherDescription,
         });
-        console.log(this.citiesDataObjectArray);
       });
     } catch (error) {
       console.error(error);
@@ -129,7 +128,7 @@ export class WeatherCardsService {
     this.sortedCitiesDataObjectArray = this.citiesDataObjectArray
       .slice()
       .sort((a, b) => a.temp - b.temp);
-    console.log(this.sortedCitiesDataObjectArray);
+
     this.updateArray();
   }
   sortByTemperatureDescending() {
@@ -137,7 +136,6 @@ export class WeatherCardsService {
       .slice()
       .sort((a, b) => b.temp - a.temp);
     this.updateArray();
-    console.log(this.sortedCitiesDataObjectArray);
   }
 
   mainCities: any[] = [

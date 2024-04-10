@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// components
 import { WeatherCardComponent } from '../../weather-card/weather-card/weather-card.component';
 import { WeatherCardsService } from '../../../../shared/services/weather-cards.service';
 import { RouterModule, RouterLink } from '@angular/router';

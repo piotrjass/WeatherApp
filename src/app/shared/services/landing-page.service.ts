@@ -23,7 +23,6 @@ export class LandingPageService {
         const mainTemp = this.kelvinToCelsius(data.main.temp);
         const cityName = data.name;
         this.citiesTemperatures.push(mainTemp, cityName);
-        console.log(this.citiesTemperatures);
       });
     } catch (error) {
       console.error(error);
@@ -54,7 +53,7 @@ export class LandingPageService {
   async updateTemperaturesForCities() {
     for (let i = 0; i < this.mainCities.length; i++) {
       const cityName = this.mainCities[i].city;
-      console.log('city is ', cityName);
+
       await this.getDataForASpecifiedCity(cityName);
     }
     for (let i = 0; i < this.citiesTemperatures.length; i += 2) {

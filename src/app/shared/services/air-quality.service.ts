@@ -23,7 +23,6 @@ export class AirQualityService {
   async checkAirQuality() {
     //  find lat and lon
     const { lat, lon } = this.findLatAndLong();
-    console.log(lat, lon);
     await this.getDataForASpecifiedCity(lat, lon);
     // send the request
     // add to the resultArray
@@ -59,7 +58,6 @@ export class AirQualityService {
           pm10,
           nh3,
         });
-        console.log(this.citiesDataObjectArray);
       });
     } catch (error) {
       console.error(error);

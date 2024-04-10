@@ -25,27 +25,5 @@ export class WeatherFormComponent {
       this.weatherCardsService.selectedRegionInService,
     );
   }
-  onCitySelectChange(): void {
-    console.log('select city called!');
-  }
-
-  // onSubmit(f: NgForm) {
-  //   const selectedRegion = f.value.region;
-  //   const selectedCity = f.value.city;
-  //   const selectedSort = f.value.sort;
-  //   console.log('Selected region:', selectedRegion);
-  //   console.log('Selected city:', selectedCity);
-  //   console.log('Selected sort:', selectedSort);
-  //   console.log('submitted!');
-  // }
-
-  // citiesArrays: string[] = [];
-  // regionArrays: string[] = [];
-  // getCities() {
-  //   this.citiesArrays = this.weatherCardsService.getCitiesArray();
-  // }
-  // getRegions() {
-  //   this.regionArrays = this.weatherCardsService.getRegionsArray();
-  // }
-  // ngOnInit(): void {}
+  onCitySelectChange(): void {}
 }

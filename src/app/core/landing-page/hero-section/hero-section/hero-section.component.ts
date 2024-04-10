@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// components
 import { HeroSectionMainTextComponent } from '../../hero-section-main-text/hero-section-main-text.component';
 import { HeroSectionChangingTextComponent } from '../../hero-section-changing-text/hero-section-changing-text.component';
 
